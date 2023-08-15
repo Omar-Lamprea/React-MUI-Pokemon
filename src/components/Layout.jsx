@@ -1,5 +1,7 @@
+import { Container } from "@mui/material"
 import { useContextTheme } from "../context/ThemeContext"
 import Header from "./Header/Header"
+import Hero from "./Header/Hero/Hero"
 
 const Layout = () => {
   const {state} = useContextTheme()
@@ -8,7 +10,9 @@ const Layout = () => {
     <>
       <Header color={color}/>
       <main className={'theme-'+state}>
-        main
+        <Container maxWidth="xl" sx={{py:2}}>
+          <Hero color={color}/>
+        </Container>
       </main>
       <footer className={'theme-'+state}>
         footer

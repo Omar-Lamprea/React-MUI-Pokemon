@@ -1,15 +1,16 @@
 /* eslint-disable react/prop-types */
 import { useContext,  useState } from 'react'
 import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography } from '@mui/material';
-import AdbIcon from '@mui/icons-material/Adb';
+// import AdbIcon from '@mui/icons-material/Adb';
 import MenuIcon from '@mui/icons-material/Menu';
 import avatarImg from '../../assets/pika.jpg'
+import pokeballImg from '../../assets/pokeball.png'
 import { ThemeContext} from '../../context/ThemeContext'
 import BtnSwitchTheme from './BtnSwitchTheme';
 
 const Header = ({color}) => {
 
-  const pages = ['Products', 'Pricing', 'Blog'];
+  const pages = [];
   const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
   const {theme} = useContext(ThemeContext)
@@ -33,36 +34,42 @@ const Header = ({color}) => {
     <header className={"theme-" + theme}>
       <AppBar position="static" color={color} 
         sx={{
-          bgcolor:`${color}.main`,
+          bgcolor:`${color}.header`,
           color: "#fff",
-          borderBottom: "1px solid"
+          borderBottom: "1px solid",
+          
         }}
       >
         <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <AdbIcon sx={{ 
+          <Toolbar>
+            <Box sx={{display: {xs: "none",md: "flex" } }}>
+              <img src={pokeballImg} alt="" width={40}/>
+            </Box>
+            {/* <AdbIcon sx={{ 
               display: { 
                 xs: "none", 
                 md: "flex" 
               }, 
-              mr: 1 
-            }} />
+              mr: 1
+            }} /> */}
             <Typography
               variant="h6"
               noWrap
-              component="a"
-              href="/"
+              // component="a"
+              // href="/"
               sx={{
                 mr: 2,
+                ml:2,
                 display: { xs: "none", md: "flex" },
                 fontFamily: "monospace",
                 fontWeight: 700,
                 letterSpacing: ".3rem",
                 color: "inherit",
                 textDecoration: "none",
+                
               }}
             >
-              LOGO
+              PokeVite
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -103,12 +110,13 @@ const Header = ({color}) => {
                 ))}
               </Menu>
             </Box>
-            <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+
+           
             <Typography
               variant="h5"
               noWrap
-              component="a"
-              href=""
+              // component=""
+              // href=""
               sx={{
                 mr: 2,
                 display: { xs: "flex", md: "none" },
@@ -120,7 +128,7 @@ const Header = ({color}) => {
                 textDecoration: "none",
               }}
             >
-              LOGO
+              <img src={pokeballImg} alt="" width={40}/>
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
@@ -135,7 +143,6 @@ const Header = ({color}) => {
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
-              {/* <Switch {...label} onChange={switchColorTheme}/> */}
               <BtnSwitchTheme />
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
