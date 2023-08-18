@@ -1,7 +1,10 @@
 import { Container } from "@mui/material"
 import { useContextTheme } from "../context/ThemeContext"
 import Header from "./Header/Header"
-import Hero from "./Header/Hero/Hero"
+
+import Footer from "./Footer/Footer"
+import Hero from "./Hero/Hero"
+import PokemonLiks from "./PokemonList/PokemonLiks"
 
 const Layout = () => {
   const {state} = useContextTheme()
@@ -10,13 +13,12 @@ const Layout = () => {
     <>
       <Header color={color}/>
       <main className={'theme-'+state}>
-        <Container maxWidth="xl" sx={{py:2}}>
+        <div>
           <Hero color={color}/>
-        </Container>
+          <PokemonLiks color={color}/>
+        </div>
       </main>
-      <footer className={'theme-'+state}>
-        footer
-      </footer>
+      <Footer color={color}/>
     </>
   )
 }

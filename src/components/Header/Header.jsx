@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useContext,  useState } from 'react'
+import { useState } from 'react'
 import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography } from '@mui/material';
 // import AdbIcon from '@mui/icons-material/Adb';
 import MenuIcon from '@mui/icons-material/Menu';
 import avatarImg from '../../assets/pika.jpg'
 import pokeballImg from '../../assets/pokeball.png'
-import { ThemeContext} from '../../context/ThemeContext'
+// import { ThemeContext} from '../../context/ThemeContext'
 import BtnSwitchTheme from './BtnSwitchTheme';
 
 const Header = ({color}) => {
@@ -13,7 +13,7 @@ const Header = ({color}) => {
   const pages = [];
   const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-  const {theme} = useContext(ThemeContext)
+  // const {theme} = useContext(ThemeContext)
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -31,12 +31,12 @@ const Header = ({color}) => {
   }
 
   return (
-    <header className={"theme-" + theme}>
+    // <header className={"theme-" + theme}>
       <AppBar position="static" color={color} 
         sx={{
           bgcolor:`${color}.header`,
           color: "#fff",
-          borderBottom: "1px solid",
+          // borderBottom: "1px solid",
           
         }}
       >
@@ -176,7 +176,7 @@ const Header = ({color}) => {
           </Toolbar>
         </Container>
       </AppBar>
-    </header>
+    // </header>
   );
 }
 

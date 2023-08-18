@@ -1,15 +1,18 @@
 /* eslint-disable react/prop-types */
 import './Hero.scss'
-import imgCharizard from '../../../assets/pokemons/Charizard 3D.gif'
+import imgCharizard from '../../assets/pokemons/Charizard 3D.gif'
 import { Box, Typography } from "@mui/material"
 
 
+// eslint-disable-next-line no-unused-vars
 const Hero = ({color}) => {
+  let bg_color = color === "darkTheme" ? color : `${color}.customBlue`
   return (
     <Box className="Hero" sx={{
+      backgroundColor:`${bg_color}`,
       display: {xs: "block", md:"flex"},
       justifyContent:"space-around",
-      px:10
+      px:5
     }}>
       <Box sx={{
         display:"flex",
@@ -22,10 +25,10 @@ const Hero = ({color}) => {
           component="h2"
           sx={{
             fontSize: "38px",
-
+            textAlign: "center"
           }}
         >
-          Se un maestro <span>Pokemon</span> y hazte con todos los pokemones del mundo
+          Be a <span>Pokémon</span> master<br /> Be the best
         </Typography>
       </Box>
       <Box>
